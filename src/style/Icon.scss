@@ -1,0 +1,11 @@
+@import "./common/animation.scss";
+// 兼容多属性
+[class^="cc-icon-"], [class*=" cc-icon-"] {
+  height: 1em;
+  width: 1em;
+}
+
+.icon-loading {
+  animation: rotating 1s infinite linear;
+}
+

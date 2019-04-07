@@ -1,0 +1,39 @@
+@import './common/mixin.scss';
+@import "./common/animation.scss";
+
+@include b(toast) {
+    position: fixed;
+    display: inline-block;
+    background-color: white;
+    top: 6px;
+    left: 50%;
+    padding: 6px 20px;
+    transition: all .3s;
+    transform: translateX(-50%);
+    @include commonShadow($--color-black);
+    .cc-toast__closeButton {
+        display: flex;
+        cursor: pointer;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0 5px;
+        &:hover {
+            animation: rotating .5s infinite linear;
+        }
+    }
+    @at-root {
+        @include commonType(cc-toast--);
+        .cc-toast--big {
+            padding: 6px 35px 6px 20px;
+        }
+        .cc-toast-fade-enter,
+        .cc-toast-fade-leave-active {
+            opacity: 0;
+            transform: translate(-50%, -100%);
+        }
+    };
+}

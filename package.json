@@ -1,0 +1,36 @@
+{
+  "name": "vue-cc-ui",
+  "version": "0.0.4",
+  "main": "./dist/cc-ui.umd.min",
+  "files": [
+    "dist/*",
+    "src/*",
+    "*.json",
+    "*.js"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint",
+    "test:unit": "vue-cli-service test:unit",
+    "build-bundle": "vue-cli-service build --target lib --name cc-ui ./src/components/index.js"
+  }, 
+  "dependencies": {
+    "vue": "^2.6.6"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.5.0",
+    "@vue/cli-plugin-eslint": "^3.5.0",
+    "@vue/cli-plugin-unit-jest": "^3.5.0",
+    "@vue/cli-service": "^3.5.0",
+    "@vue/test-utils": "1.0.0-beta.29",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-eslint": "^10.0.1",
+    "babel-jest": "^23.6.0",
+    "eslint": "^5.8.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.5.21",
+    "node-sass": "^4.11.0",
+    "sass-loader": "^7.1.0"
+  }
+}

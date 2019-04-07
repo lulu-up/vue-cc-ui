@@ -1,0 +1,52 @@
+@import './common/var.scss';
+@import './common/extend.scss';
+@import './common/mixin.scss';
+@include b(button) {
+    cursor: pointer;
+    align-items: center;
+    display: inline-flex;
+    vertical-align: middle;
+    justify-content: center;
+    background-color: white;
+    outline: 0;
+    border-radius: 6px;
+    transition: all 0.1s;
+    @include commonShadow($--color-black);
+    &:not(.is-disabled) {
+        &:active {
+            box-shadow: none;
+            opacity: 0.7;
+            transform: translateX(2px) translateY(2px) scale(0.9);
+        }
+    }
+    @include when(disabled) {
+        cursor: not-allowed;
+        @include commonShadow($--color-disabled);
+    }
+    @include when(left) {
+        border-radius: 16px 0 0 16px;
+    }
+    ;
+    @include when(right) {
+        border-radius: 0 16px 16px 0;
+    }
+    ;
+    @include when(centre) {
+        border-radius: 0;
+    }
+    @at-root {
+        @include commonType(cc-button--)
+    };
+    &.size-big {
+        font-size: $--size-big;
+        padding: 6px 11px;
+    }
+    &.size-normal {
+        font-size: $--size-nomal;
+        padding: 4px 8px;
+    }
+    &.size-small {
+        font-size: $--size-small;
+        padding: 2px 6px;
+    }
+}

@@ -1,0 +1,40 @@
+@import '../config/index.scss';
+@import '../common/var.scss';
+@mixin commonShadow($color) {
+    @if $color=='success' {
+        $color: $--color-success
+    }
+    @if $color=='warning' {
+        $color: $--color-warning
+    }
+    @if $color=='danger' {
+        $color: $--color-danger
+    }
+    color: $color;
+    border: 1px solid $color;
+    box-shadow: 2px 2px $color;
+};
+
+@mixin commonType ($name) {
+    @each $type in (success, warning, danger) {
+        .#{$name}#{$type} {
+            @include commonShadow($type);
+        }
+    }
+}
+
+@mixin b($block) {
+    // !global与!defult相对立, 优先与默认编译
+    $B: $namespace+'-'+$block !global;
+    .#{$B} {
+        @content;
+    }
+}
+
+@mixin when($state) {
+    @at-root {
+        &.#{$state-prefix + $state} {
+            @content;
+        }
+    }
+}
