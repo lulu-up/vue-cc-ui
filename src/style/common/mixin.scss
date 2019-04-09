@@ -1,19 +1,25 @@
 @import '../config/index.scss';
 @import '../common/var.scss';
+
 @mixin commonShadow($color) {
     @if $color=='success' {
         $color: $--color-success
     }
+
     @if $color=='warning' {
         $color: $--color-warning
     }
+
     @if $color=='danger' {
         $color: $--color-danger
     }
+
     color: $color;
     border: 1px solid $color;
     box-shadow: 2px 2px $color;
-};
+}
+
+;
 
 @mixin commonType ($name) {
     @each $type in (success, warning, danger) {
@@ -26,6 +32,7 @@
 @mixin b($block) {
     // !global与!defult相对立, 优先与默认编译
     $B: $namespace+'-'+$block !global;
+
     .#{$B} {
         @content;
     }
@@ -37,4 +44,20 @@
             @content;
         }
     }
+}
+
+@mixin position($position:absolute) {
+    margin: auto;
+    position: $position;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+@mixin flexCenter {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }

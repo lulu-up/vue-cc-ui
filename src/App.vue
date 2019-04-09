@@ -60,10 +60,33 @@
     <ccIcon name='cc-search' />
     <ccIcon name='cc-load1' />
     <ccIcon name='cc-load2' />
+    <ccIcon name='cc-load3' />
+    <ccIcon name='cc-load4' />
+    <ccIcon name='cc-load5' />
+    <ccIcon name='cc-load6' />
+    <ccIcon name='cc-load7' />
+    <ccIcon name='cc-danger' />
+    <ccIcon name='cc-go' />
+    <ccIcon name='cc-ball' />
+    <ccIcon name='cc-stars' />
+    <ccIcon name='cc-phone1' />
+    <ccIcon name='cc-phone2' />
     <hr>
-    <cc-button type='success' @click="showToast('success')">弹出Taost</cc-button>
-    <cc-button type='warning' @click="showToast('warning')">弹出Taost</cc-button>
-    <cc-button type='danger' @click="showToast('danger')">弹出Taost</cc-button>
+    <cc-button type='success'
+               @click="showToast('success')">弹出Taost</cc-button>
+    <cc-button type='warning'
+               @click="showToast('warning')">弹出Taost</cc-button>
+    <cc-button type='danger'
+               @click="showToast('danger')">弹出Taost</cc-button>
+    <hr>
+    <!-- <cc-loading/> -->
+    <div class="loading__box">
+      <cc-loading position='absolute'  />
+    </div>
+    <div class="loading__box">
+      <cc-loading position='absolute' iconColor='red' iconName='cc-load3' curtainColor='yellow' title='我是加载标题~~'/>
+    </div>
+    <cc-button @click="jsLoading()">js方式触发</cc-button>
   </div>
 </template>
 
@@ -77,14 +100,21 @@ export default {
     fd() {
       console.log("防抖", this.$ccToast);
     },
+    jsLoading() {
+      this.$ccShowLoading();
+      setTimeout(()=>{
+      this.$ccHiddenLoading()
+      },2000)
+    },
     showToast(type) {
       this.$ccToast({
         type,
         autoClose: true,
         closeTime: 13000,
         showButton: true,
-        zIndex:20,
-        message: "我是信息我是信息我是信息我是信息我是信息我是信息我是信息我是信息我是信息我是信息"
+        zIndex: 20,
+        message:
+          "我是信息我是信息我是信息我是信息我是信息我是信息我是信息我是信息我是信息我是信息"
       });
     }
   },
@@ -96,5 +126,11 @@ export default {
 <style >
 .cc-button {
   margin: 0 4px;
+}
+.loading__box {
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  position: relative;
 }
 </style>

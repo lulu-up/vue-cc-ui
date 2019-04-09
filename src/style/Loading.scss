@@ -1,0 +1,20 @@
+@import './common/var.scss';
+@import './common/extend.scss';
+@import './common/mixin.scss';
+
+@include b(loading) {
+    @include position();
+    &__curtain{
+        @include position();
+    }
+    &__icon{
+        position: absolute;
+        color: $--color-nomal;
+        z-index: 10;
+        @include flexCenter;
+        @include position();
+        :nth-child(1){
+            margin-bottom:6px;
+        }
+    }
+}
