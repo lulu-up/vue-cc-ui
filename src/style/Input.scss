@@ -1,0 +1,58 @@
+@import './common/var.scss';
+@import './common/extend.scss';
+@import './common/mixin.scss';
+@import './config/index.scss';
+
+@include b(input) {
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+    display: inline-flex;
+    background-color: white;
+    transition: all .3s;
+    @include b(input__inner) {
+        border: none;
+        flex: 1;
+        width: 100%;
+        font-size: 1em;
+        padding: 9px 16px;
+        &:focus { outline: 0; }
+        @include placeholder{
+            color: $--color-input-placeholder;
+        }
+    };
+    @include b(input__prefix) {
+        align-items: center;
+        display: inline-flex;
+        &:hover{transform: scale(1.1)}
+        @include when(left) {
+            padding-left:6px;
+        }
+        @include when(right) {
+            padding-right:6px;
+        }
+    };
+    @include b(input__clear){
+        position: absolute;
+        right: 2px;
+        &:hover{ animation: size .5s infinite linear;}
+    };
+    @include b(input--input__disabled){
+        @include commonShadow(disabled);
+    };
+    @at-root {
+        @include b(input__normal){
+            @include commonShadow($--color-black);
+            &:hover {
+                z-index: 6;
+                transform: scale(1.2);
+            }
+        }
+        @include b(input__error){
+            @include commonShadow(danger);
+        }
+        @include b(input__abnormal){
+            @include commonShadow($--color-black);
+        }
+    }
+}

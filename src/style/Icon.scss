@@ -1,11 +1,12 @@
+@import './common/mixin.scss';
 @import "./common/animation.scss";
-// 兼容多属性
-[class^="cc-icon-"], [class*=" cc-icon-"] {
-  height: 1em;
-  width: 1em;
-}
 
-.icon-loading {
-  animation: rotating 1s infinite linear;
+@include b(icon) {
+    .#{$state-prefix}disabled {
+        cursor: not-allowed;
+        fill: $--color-disabled;
+    }
+    .icon-loading {
+        animation: rotating 1s infinite linear;
+    }
 }
-

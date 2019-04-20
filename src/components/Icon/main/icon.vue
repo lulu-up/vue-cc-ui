@@ -1,11 +1,18 @@
 <template>
   <!-- 我发现不加这个他们就不居中 -->
-  <div style="display: inline-flex;">
+  <div 
+    class='cc-icon'
+    :style="{
+    display: 'inline-flex',
+    height: iconSize,
+    width: iconSize,
+    }">
     <svg :style="{fill:color}"
          :class="[
           'cc-icon-'+name,
           { 
-            'icon-loading':~name.indexOf('load')
+            'icon-loading':~name.indexOf('load'),
+            'is-disabled':disabled
           }
          ]">
       <use :xlink:href='`#icon-${name}`'></use>
@@ -16,14 +23,21 @@
 export default {
   name: "ccIcon",
   props: {
+    color: String,
+    disabled: Boolean,
     name: {
       type: String,
       required: true
     },
-    // 图标的颜色
-    color: {
-      type: String,
-      default: "black"
+    size: {
+      type: [Number, String],
+      default: "1em"
+    }
+  },
+  computed: {
+    iconSize() {
+      if (typeof this.size === "number") return this.size + "px";
+      else return this.size;
     }
   }
 };

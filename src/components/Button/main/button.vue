@@ -32,7 +32,7 @@ export default {
     type: String, // 类型
     shake: Number, // 防抖的秒数
     left: Boolean, // 方向
-    right: Boolean, 
+    right: Boolean,
     centre: Boolean,
     throttle: Number, // 节流, 请输入秒数
     disabled: Boolean, // 禁用的时候, icon也要变色
@@ -40,7 +40,6 @@ export default {
     nativeType: String, // 原生的类型还是要给的
     clickId: [String, Number], // 相同id的组件走一套计时.
     size: {
-      // 还要有f-s这个属性
       typr: String,
       default: "normal"
     }
@@ -59,12 +58,9 @@ export default {
         num = this.shake * -1;
       }
       prevent(
-        this.clickId,
-        () => {
+        this.clickId,() => {
           this.$emit("click");
-        },
-        num,
-        clickType
+        }, num, clickType
       );
     },
     touchstart() {}

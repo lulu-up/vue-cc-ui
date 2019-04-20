@@ -14,6 +14,11 @@
         $color: $--color-danger
     }
 
+    @if $color=='disabled' {
+        cursor: not-allowed;
+        $color: $--color-disabled
+    }
+
     color: $color;
     border: 1px solid $color;
     box-shadow: 2px 2px $color;
@@ -45,6 +50,20 @@
         }
     }
 }
+
+@mixin placeholder {
+    &::-webkit-input-placeholder {
+      @content
+    };
+  
+    &::-moz-placeholder {
+      @content
+    };
+  
+    &:-ms-input-placeholder {
+      @content
+    }
+  };
 
 @mixin position($position:absolute) {
     margin: auto;

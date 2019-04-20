@@ -59,13 +59,10 @@
     <ccIcon name='cc-down' />
     <ccIcon name='cc-search' />
     <ccIcon name='cc-load1' />
-    <ccIcon name='cc-load2' />
-    <ccIcon name='cc-load3' />
+    <ccIcon name='cc-load2' size='60px' />
+    <ccIcon name='cc-load3' :size='70'/>
     <ccIcon name='cc-load4' />
-    <ccIcon name='cc-load5' />
-    <ccIcon name='cc-load6' />
-    <ccIcon name='cc-load7' />
-    <ccIcon name='cc-danger' />
+    <ccIcon name='cc-danger' color='red' size='50px' />
     <ccIcon name='cc-go' />
     <ccIcon name='cc-ball' />
     <ccIcon name='cc-stars' />
@@ -87,13 +84,68 @@
       <cc-loading position='absolute' iconColor='red' iconName='cc-load3' curtainColor='yellow' title='我是加载标题~~'/>
     </div>
     <cc-button @click="jsLoading()">js方式触发</cc-button>
+    <hr>
+
+    <cc-input value='' 
+              placeholder='111' 
+              @clickRightIcon='clickIcon' 
+              @clickLeftIcon='clickIcon' 
+              icon='cc-search'
+              leftIcon='cc-phone1'/>
+    <br>
+    <cc-input value='我是传值1111' v-model="bangding" clear/>
+    <br>
+    <cc-input value='我是传值1111' leftIcon='cc-phone1' v-model="bangding" clear/>
+    <br>
+    <cc-input value='我是传值2' disabled/>
+    <br>
+    <cc-input value='我是传值3' readonly />
+    <br>
+    <cc-input value='我是传值4' error icon='cc-danger' iconColor='red'>文字信息玩好玩</cc-input>
+    <br>
+    <hr>
+    <p>自动获取焦点</p>
+    <cc-input autofocus value='我是传值4' error icon='cc-danger' iconColor='red'>文s信息</cc-input>
+    <br>
+    <hr>
+    <cc-input style="width:500px" value='我是传值4' error icon='cc-danger' iconColor='red'>好</cc-input>
+    <br>
+    <hr>
+    <!-- 双向绑定必须显示一个value属性, 监控input方法 -->
+     <cc-input v-model="bangding"/>
+     <p>{{bangding}}</p> 
+    <p>文本框</p>
+    <cc-input type='textarea' cols='40px' rows='140px' v-model="bangding"/>
+    <br>
+    <cc-input type='textarea' v-model="bangding" disabled/>
+    <br>
+    <!-- normal 不放大 -->
+    <cc-input normal cols='200px' rows='400px' type='textarea' v-model="bangding"/>
+    <br>
+    自适应高度
+    <cc-input autosize type='textarea' v-model="bangding"/>
+     <cc-input :autosize="{
+       min:'200',
+       max:'400'
+     }" transformOrigin='30% 30%' type='textarea' v-model="bangding"/>
+     <br><br><br><br><br><br><br>
+     <!-- <div class="shiyan">
+     </div> -->
   </div>
 </template>
 
 <script>
 export default {
   name: "app",
+  data() {
+    return {
+      bangding:1
+    }
+  },
   methods: {
+    clickIcon(){
+      console.log('点击了输入框的图标')
+    },
     jl() {
       console.log("节流");
     },
@@ -124,6 +176,9 @@ export default {
 };
 </script>
 <style >
+body{
+  background-color: #eee;
+}
 .cc-button {
   margin: 0 4px;
 }
@@ -132,5 +187,10 @@ export default {
   height: 200px;
   width: 200px;
   position: relative;
+}
+.shiyan{
+  height: 20px;
+  border: 20px solid;
+  padding: 20px;
 }
 </style>

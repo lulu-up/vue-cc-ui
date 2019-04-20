@@ -11,7 +11,7 @@
     transition: all .3s;
     transform: translateX(-50%);
     @include commonShadow($--color-black);
-    .cc-toast__closeButton {
+    .#{$namespace}-toast__closeButton {
         display: flex;
         cursor: pointer;
         position: absolute;
@@ -27,11 +27,11 @@
     }
     @at-root {
         @include commonType(cc-toast--);
-        .cc-toast--big {
+        .#{$namespace}-toast--big {
             padding: 6px 35px 6px 20px;
         }
-        .cc-toast-fade-enter,
-        .cc-toast-fade-leave-active {
+        .#{$namespace}-toast-fade-enter,
+        .#{$namespace}-toast-fade-leave-active {
             opacity: 0;
             transform: translate(-50%, -100%);
         }

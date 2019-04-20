@@ -6,3 +6,12 @@
       transform: rotateZ(360deg);
     }
   }
+
+  @keyframes size {
+    0% {
+      transform:scale(.9);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }

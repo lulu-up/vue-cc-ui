@@ -6,9 +6,9 @@ import App from './App.vue';
 // 字体样式
 // import './style/fonts/iconfont'
 // 使用组件
-import { button, icon, toast,loading } from './components/index';
+import { button, icon, toast,loading,input } from './components/index';
 
-Vue.use(button).use(icon).use(toast).use(loading);
+Vue.use(button).use(icon).use(toast).use(loading).use(input);
 
 new Vue({
   render: h => h(App)
