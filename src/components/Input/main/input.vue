@@ -1,4 +1,3 @@
-<!--  -->
 <template>
   <div class="cc-input"
        :class="{
@@ -23,6 +22,7 @@
       <input type="text"
              class='cc-input__inner'
              :value="value"
+             v-bind="$attrs"
              :disabled="disabled"
              :readonly="readonly"
              :autofocus="autofocus"
@@ -53,6 +53,7 @@
               ref="textarea"
               class='cc-input__inner'
               :value="value"
+              v-bind="$attrs"
               :disabled="disabled"
               :readonly="readonly"
               :autofocus="autofocus"

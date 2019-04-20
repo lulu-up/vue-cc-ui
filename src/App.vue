@@ -129,8 +129,6 @@
        max:'400'
      }" transformOrigin='30% 30%' type='textarea' v-model="bangding"/>
      <br><br><br><br><br><br><br>
-     <!-- <div class="shiyan">
-     </div> -->
   </div>
 </template>
 
@@ -187,10 +185,5 @@ body{
   height: 200px;
   width: 200px;
   position: relative;
-}
-.shiyan{
-  height: 20px;
-  border: 20px solid;
-  padding: 20px;
 }
 </style>

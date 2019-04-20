@@ -1,5 +1,4 @@
 <template>
-  <!-- 我发现不加这个他们就不居中 -->
   <div 
     class='cc-icon'
     :style="{
