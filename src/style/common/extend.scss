@@ -1,2 +1,19 @@
 @import './var.scss';
+@import './animation.scss';
 
+.cc-bling {
+    &:after {
+        content: '';
+        position: absolute;
+        background-image: linear-gradient(to right, rgb(232, 229, 229), white);
+        left: 0;
+        top: -20px;
+        width: 15px;
+        height: calc(100% + 30px);
+        transform: rotate(-30deg);
+        animation-name: bling;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+}

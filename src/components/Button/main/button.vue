@@ -1,10 +1,12 @@
 <template>
+  <!-- 价格光影吧 -->
   <button class="cc-button"
-          touchstart='touchstart'
-          :class="[ 
-          sizeType,
-          type ? 'cc-button--' + type : '',
+          @touchstart='touchstart($event)'
+    :class="[ 
+      sizeType,
+      type ? 'cc-button--' + type : '',
     {
+      'is-bling':bling,
       'is-left':left,
       'is-right':right,
       'is-centre':centre,
@@ -30,6 +32,7 @@ export default {
   props: {
     icon: String, // 图标
     type: String, // 类型
+    bling:Boolean, // 条纹
     shake: Number, // 防抖的秒数
     left: Boolean, // 方向
     right: Boolean,
@@ -58,16 +61,23 @@ export default {
         num = this.shake * -1;
       }
       prevent(
-        this.clickId,() => {
+        this.clickId,
+        () => {
           this.$emit("click");
-        }, num, clickType
+        },
+        num,
+        clickType
       );
     },
-    touchstart() {}
+    touchstart(event) {
+      this.$emit("touchstart", event);
+    }
   },
   computed: {
     sizeType() {
-      return "size-" + this.size;
+      let sizeList = ["big", "small"];
+      if (sizeList.includes(this.size)) return "size-" + this.size;
+      return "size-normal";
     },
     realyIconColor() {
       if (this.disabled) return "#bbbbbb";

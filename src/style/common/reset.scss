@@ -1,2 +1,8 @@
-@import 'common/var';
+// @import 'common/var';
 
+li,ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

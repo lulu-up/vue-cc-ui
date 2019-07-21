@@ -14,7 +14,7 @@ let CC = {
 
 // 方便模块化调取
 export default {
-  version: '0.0.1',
+  version: '0.0.7',
   CC,
   Button
 };

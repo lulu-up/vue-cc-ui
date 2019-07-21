@@ -2,81 +2,85 @@
 @import '../common/var.scss';
 
 @mixin commonShadow($color) {
-    @if $color=='success' {
-        $color: $--color-success
-    }
+  @if $color== 'success' {
+    $color: $--color-success;
+  }
 
-    @if $color=='warning' {
-        $color: $--color-warning
-    }
+  @if $color== 'warning' {
+    $color: $--color-warning;
+  }
 
-    @if $color=='danger' {
-        $color: $--color-danger
-    }
+  @if $color== 'danger' {
+    $color: $--color-danger;
+  }
 
-    @if $color=='disabled' {
-        cursor: not-allowed;
-        $color: $--color-disabled
-    }
+  @if $color== 'disabled' {
+    cursor: not-allowed;
+    $color: $--color-disabled;
+  }
 
-    color: $color;
-    border: 1px solid $color;
-    box-shadow: 2px 2px $color;
+  color: $color;
+  border: 1px solid $color;
+  box-shadow: 2px 2px $color;
 }
 
-;
-
-@mixin commonType ($name) {
-    @each $type in (success, warning, danger) {
-        .#{$name}#{$type} {
-            @include commonShadow($type);
-        }
+@mixin commonType($name) {
+  @each $type in (success, warning, danger) {
+    .#{$name}#{$type} {
+      @include commonShadow($type);
     }
+  }
 }
 
 @mixin b($block) {
-    // !global与!defult相对立, 优先与默认编译
-    $B: $namespace+'-'+$block !global;
+  // !global与!defult相对立, 优先与默认编译
+  $B: $namespace + '-' + $block !global;
 
-    .#{$B} {
-        @content;
-    }
+  .#{$B} {
+    @content;
+  }
 }
 
 @mixin when($state) {
-    @at-root {
-        &.#{$state-prefix + $state} {
-            @content;
-        }
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
     }
+  }
+}
+
+@mixin brother($name) {
+  &>&#{-$name} {
+    @content;
+  }
 }
 
 @mixin placeholder {
-    &::-webkit-input-placeholder {
-      @content
-    };
-  
-    &::-moz-placeholder {
-      @content
-    };
-  
-    &:-ms-input-placeholder {
-      @content
-    }
-  };
+  &::-webkit-input-placeholder {
+    @content;
+  }
 
-@mixin position($position:absolute) {
-    margin: auto;
-    position: $position;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+  &::-moz-placeholder {
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    @content;
+  }
+}
+
+@mixin position($position: absolute) {
+  margin: auto;
+  position: $position;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 @mixin flexCenter {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -10,7 +10,7 @@
              'opacity':opacity,
              'background-color':curtainColor
             }" />
-    <main class="cc-loading__icon"
+    <section class="cc-loading__icon"
           :style="{
               'fontSize':iconSize+'px'
               }">
@@ -20,7 +20,7 @@
           'fontSize':textFontSize+'px',
           'color':textColor
           }">{{title}}</span>
-    </main>
+    </section>
 
   </div>
 </template>

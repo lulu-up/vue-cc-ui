@@ -1,0 +1,74 @@
+@import './common/var.scss';
+@import './common/mixin.scss';
+@import './common/extend.scss';
+
+@include b(tab) {
+    @include brother(nav) {
+        display: flex;
+        flex-wrap: nowrap;
+        text-align: center;
+        border-bottom: 1px solid #eee;
+        margin-bottom: 10px;
+        &>li {
+            cursor: pointer;
+            display: flex;
+            position: relative;
+            align-items: center;
+            border-bottom: none;
+            background-color: white;
+            padding: 10px 20px;
+            transition: all 0.2s;
+            &:hover {
+                transform: scale(0.8)
+            };
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: 0;
+                    transition: all 0.2s;
+                    left: 6px;
+                    right: 6px;
+                    transform: scale(0);
+                }
+            @include when(active) {
+                color: $--color-nomal;
+                &::after {
+                    border-bottom: 2px solid $--color-nomal;
+                    transform: scale(1);
+                }
+            }
+        }
+        @include when(card) {
+            &::after {
+                display: none
+            }
+            &>li {
+                border: 1px solid #eee;
+                border-bottom: none;
+                &:hover {
+                    transform: scale(1)
+                }
+            };
+            &>li+li {
+                border-left: none
+            };
+            &>.is-active {
+                border-bottom: none;
+                &::after {
+                    content: '';
+                    position: absolute;
+                    bottom: -1px;
+                    left: 0;
+                    right: 0;
+                    border-bottom: 2px solid white;
+                }
+            };
+            &>:nth-last-child(1) {
+                border-top-right-radius: 7px;
+            };
+            &>:nth-child(1) {
+                border-top-left-radius: 7px;
+            };
+        }
+    }
+}

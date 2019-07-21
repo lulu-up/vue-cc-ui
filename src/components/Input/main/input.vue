@@ -53,7 +53,7 @@
               ref="textarea"
               class='cc-input__inner'
               :value="value"
-              v-bind="$attrs"
+              v-bind="$attrs" 
               :disabled="disabled"
               :readonly="readonly"
               :autofocus="autofocus"

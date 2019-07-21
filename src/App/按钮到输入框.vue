@@ -21,6 +21,8 @@
     <cc-button size='normal'>中按钮</cc-button>
     <cc-button size='small'>小按钮</cc-button>
     <hr>
+    <cc-button bling>bling</cc-button>
+    <hr>
     <cc-button icon='cc-up'
                iconColor='red'>图标按钮</cc-button>
     <cc-button icon='cc-left'

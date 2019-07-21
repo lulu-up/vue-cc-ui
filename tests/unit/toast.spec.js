@@ -17,8 +17,8 @@ describe('toast组件的基本属性', () => {
 
   it('不显示关闭按钮', () => {
     const wrapper = mount(Toast, {
+      zIndex: 100,
       propsData: {
-        zIndex: 100,
         showButton: false,
         message: '随意的信息'
       }

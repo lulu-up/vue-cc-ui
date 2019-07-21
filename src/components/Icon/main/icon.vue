@@ -1,7 +1,6 @@
 <template>
-  <div 
-    class='cc-icon'
-    :style="{
+  <div class='cc-icon'
+       :style="{
     display: 'inline-flex',
     height: iconSize,
     width: iconSize,

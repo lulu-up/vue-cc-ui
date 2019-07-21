@@ -30,7 +30,7 @@ function model1(id, obj, time) {
   }, time)
 }
 
-// 模式2 每次动作都有time的延时再执行,也就是所有点击完事的时候执行一个
+// 模式2 每次动作都有time的延时再执行,也就是所有连续点击完事的时候执行一个
 function model2(id, obj, time) {
   clearTimeout(preventList['time' + id])
   preventList['time' + id] = setTimeout(() => {
