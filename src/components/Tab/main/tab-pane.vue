@@ -23,10 +23,6 @@ export default {
     return {
       showItem:false
     };
-  },
-  methods: {},
-  created() {},
-  mounted() {},
-  computed: {}
+  }
 };
 </script>

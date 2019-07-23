@@ -66,7 +66,6 @@ export default {
   mounted() {
     this.initNav();
     this.initSeleced();
-  },
-  computed: {}
+  }
 };
 </script>

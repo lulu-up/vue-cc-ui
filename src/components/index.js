@@ -3,13 +3,14 @@ import icon from './Icon/index';
 import toast from './Toast/index';
 import loading from './loading/index';
 import input from './Input/index';
-import tab from './Tab/index'
+import tab from './Tab/index';
+import inputNumber from './InputNumber/index';
 // 总的样式
 import '../style/index.scss';
 // 字体样式
 import '../style/fonts/iconfont';
 
-const components = [button, icon, toast, loading, input, tab];
+const components = [button, icon, toast, loading, input, tab, inputNumber];
 
 let CC = {
   install(Vue) {
@@ -21,4 +22,4 @@ let CC = {
 
 export default CC;
 
-export { button, icon, toast, loading, input,tab };
+export { button, icon, toast, loading, input, tab, inputNumber };

@@ -1,0 +1,33 @@
+@import './common/var.scss';
+@import './common/extend.scss';
+@import './common/mixin.scss';
+@import './config/index.scss';
+
+@include b(input-number) {
+    cursor: pointer;
+    transition:all .1s;
+    align-items: center;
+    display: inline-flex;
+    background-color: white;
+    &:hover {
+      z-index: 6;
+      transform: scale(1.2);
+    }
+    @include commonShadow($--color-black);
+    @include e(add) {
+        @include flexCenter();
+        padding: 4px 6px;
+    }
+    @include e(reduce) {
+        @include flexCenter();
+        padding: 4px 6px;
+    }
+    @include e(input) {
+        border: none;
+        outline:none;
+        display: block;
+        text-align: center;
+        width:60px;
+        height: 20px;
+    }
+}

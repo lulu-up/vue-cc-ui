@@ -6,3 +6,11 @@ li,ul {
     padding: 0;
     box-sizing: border-box;
 }
+// 干掉input框typr=number时的上下按钮
+input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+    }
+    input[type="number"]{
+        -moz-appearance: textfield;
+}
