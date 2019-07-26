@@ -57,7 +57,7 @@ export default {
   data() {
     return {
       time: "",
-      oldVal:Infinity
+      oldVal: Infinity
     };
   },
   methods: {
@@ -77,8 +77,8 @@ export default {
       if (max !== undefined && newVal > max) newVal = max;
       if (min !== undefined && newVal < min) newVal = min;
       let ls = Number(newVal).toFixed(this.precision);
-      if(ls === this.oldVal)return
-      this.oldVal = ls 
+      if (ls === this.oldVal) return;
+      this.oldVal = ls;
       this.$emit("input", ls);
       this.$emit("change", ls);
       this.$refs.input.value = ls;

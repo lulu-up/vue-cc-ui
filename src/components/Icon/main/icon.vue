@@ -3,7 +3,7 @@
        :style="{
     display: 'inline-flex',
     height: iconSize,
-    width: iconSize,
+    width: iconSize
     }">
     <svg :style="{fill:color}"
          :class="[

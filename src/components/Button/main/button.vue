@@ -1,5 +1,4 @@
 <template>
-  <!-- 价格光影吧 -->
   <button class="cc-button"
           @touchstart='touchstart($event)'
     :class="[ 

@@ -95,6 +95,7 @@ export default {
     document.addEventListener("keydown", this.keydown);
   },
   beforeDestroy() {
+    this.clearTimer()
     document.removeEventListener("keydown", this.keydown);
   }
 };

@@ -61,6 +61,14 @@
   }
 }
 
+@mixin m($name) {
+  &#{$cc-modifier-separator}#{$name} {
+    @content;
+  }
+}
+
+
+
 @mixin placeholder {
   &::-webkit-input-placeholder {
     @content;
