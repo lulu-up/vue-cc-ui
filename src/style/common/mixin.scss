@@ -83,13 +83,13 @@
   }
 }
 
-@mixin position($position: absolute) {
+@mixin position($position: absolute, $long: 0) {
   margin: auto;
   position: $position;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  top: $long;
+  left: $long;
+  right: $long;
+  bottom: $long;
 }
 
 @mixin flexCenter {

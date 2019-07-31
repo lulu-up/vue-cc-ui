@@ -24,11 +24,11 @@
                 &::after {
                     content: '';
                     position: absolute;
-                    bottom: 0;
-                    transition: all 0.2s;
                     left: 6px;
+                    bottom: 0;
                     right: 6px;
                     transform: scale(0);
+                    transition: all 0.2s;
                 }
             @include when(active) {
                 color: $--color-nomal;
@@ -43,8 +43,8 @@
                 display: none
             }
             &>li {
-                border: 1px solid #eee;
                 border-bottom: none;
+                border: 1px solid #eee;
                 &:hover {
                     transform: scale(1)
                 }
@@ -57,10 +57,10 @@
                 &::after {
                     content: '';
                     position: absolute;
-                    bottom: -1px;
+                    border-bottom: 2px solid white;
                     left: 0;
                     right: 0;
-                    border-bottom: 2px solid white;
+                    bottom: -1px;
                 }
             };
             &>:nth-last-child(1) {

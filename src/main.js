@@ -3,7 +3,8 @@ import Vue from 'vue';
 // import App from './App/tab.vue';
 // import App from './App/按钮到输入框.vue';
 // import App from './App/inputNumber.vue';
-import App from './App/小星星.vue';
+// import App from './App/小星星.vue';
+import App from './App/骨架.vue';
 
 // 总的样式
 // import './style/index.scss';
@@ -18,7 +19,8 @@ import {
   input,
   tab,
   inputNumber,
-  rate
+  rate,
+  ske
 } from './components/index';
 
 Vue.use(button)
@@ -28,7 +30,8 @@ Vue.use(button)
   .use(input)
   .use(tab)
   .use(inputNumber)
-  .use(rate);
+  .use(rate)
+  .use(ske);
 
 new Vue({
   render: h => h(App)

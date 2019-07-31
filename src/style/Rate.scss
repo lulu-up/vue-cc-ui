@@ -3,27 +3,27 @@
 @import './common/mixin.scss';
 
 @include b(rate) {
+    position: relative;
+    align-items: center;
     display: inline-flex;
     justify-content: center;
-    align-items: center;
-    position: relative;
 
     @include e (dark) {
-        height: 100%;
         display: flex;
         align-items: center;
+        height: 100%;
         transition: all .3;
     }
 
     @include e (bright) {
-        height: 100%;
-        display: inline-flex;
+        overflow: hidden;
+        flex-wrap: nowrap;
         position: absolute;
         align-items: center;
-        left: 0;
+        display: inline-flex;
         top: 0;
-        flex-wrap: nowrap;
-        overflow: hidden;
+        left: 0;
+        height: 100%;
         transition: all .3;
     }
 

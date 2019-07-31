@@ -1,0 +1,77 @@
+@import './common/var.scss';
+@import './common/mixin.scss';
+@import './common/extend.scss';
+
+@include b(ske) {
+    background-color: white;
+    @include position(fixed);
+
+    @include e(box) {
+        overflow: hidden;
+        @include position(absolute, 30px);
+    }
+
+    @include e(base) {
+        background-color: #F6F6F6;
+        width: 100%;
+        z-index: -1; // 为了伪类能够被挡住
+    }
+
+    @include e(round) {
+        display: flex;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
+        background-color: white;
+        left: 0px;
+        width: 180px;
+        height: 180px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            background-color: #F6F6F6;
+            width: 70%;
+            height: 70%;
+            border-radius: 50%;
+        }
+    }
+
+    @include e(rec) {
+        position: absolute;
+        background-color: #F6F6F6;
+        left: 0px;
+        bottom: 0;
+        right: 0px;
+        height: 300px;
+        @at-root {
+            @include m(big) {
+                position: absolute;
+                background-color: #F6F6F6;
+                border-right: 20px solid white;
+                top: 0px;
+                left: 0px;
+                width: 260px;
+                height: 100%;
+            }
+        }
+    }
+    .across {
+        // 透明的白色, 惊艳了
+        background-color: white;
+        animation: pass 2s infinite linear;
+        width: 30px;
+        opacity: 0.8;
+        height: 2000px;
+    }
+}
+
+@keyframes pass {
+    0% {
+        transform: rotate(-45deg) translate(0px);
+    }
+
+    100% {
+        transform: rotate(-45deg) translate(2000px);
+    }
+}
