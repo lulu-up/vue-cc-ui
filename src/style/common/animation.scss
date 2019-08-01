@@ -1,27 +1,40 @@
 @keyframes rotating {
-    0% {
-      transform: rotateZ(0deg);
-    }
-    100% {
-      transform: rotateZ(360deg);
-    }
+  0% {
+    transform: rotateZ(0deg);
   }
 
-  @keyframes size {
-    0% {
-      transform:scale(.9);
-    }
-    100% {
-      transform: scale(1.1);
-    }
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes size {
+  0% {
+    transform: scale(.9);
   }
 
-  @keyframes bling{
-    0% {
-      left: 0;
-    }
-    100% {
-      left: 310%;
-    }
+  100% {
+    transform: scale(1.1);
   }
-  
+}
+
+@keyframes bling {
+  0% {
+    left: 0;
+  }
+
+  100% {
+    left: 310%;
+  }
+}
+
+
+@keyframes pass {
+  0% {
+    transform: rotate(-45deg) translate(0px);
+  }
+
+  100% {
+    transform: rotate(-45deg) translate(2000px);
+  }
+}

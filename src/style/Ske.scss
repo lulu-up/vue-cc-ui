@@ -65,13 +65,3 @@
         height: 2000px;
     }
 }
-
-@keyframes pass {
-    0% {
-        transform: rotate(-45deg) translate(0px);
-    }
-
-    100% {
-        transform: rotate(-45deg) translate(2000px);
-    }
-}
