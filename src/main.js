@@ -3,8 +3,8 @@ import Vue from 'vue';
 // import App from './App/tab.vue';
 // import App from './App/按钮到输入框.vue';
 // import App from './App/inputNumber.vue';
-// import App from './App/小星星.vue';
-import App from './App/骨架.vue';
+import App from './App/小星星.vue';
+// import App from './App/骨架.vue';
 // import App from './App/懒加载.vue';
 
 // 总的样式

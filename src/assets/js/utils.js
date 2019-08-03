@@ -32,6 +32,12 @@ export function getHTMLScroll(node) {
       result.left -= domScrollLeft;
     }
 
+   let pos =  window.getComputedStyle(dom,null).position;
+    if(pos === 'fixed'){
+      result.top += dom.offsetTop;
+      result.left += dom.offsetLeft;
+       return
+    }
     if (dom.nodeName !== 'BODY') {
       task(dom);
     }

@@ -2,6 +2,15 @@
 <template>
   <div>
     <ul>
+       <li>
+         滑动
+        <div class="huadong">
+          <div class="son">
+    <cc-rate v-model="val1" score />
+          </div>
+        </div>
+       
+      </li>
       <li>
         <p>禁选:</p>
         <cc-rate v-model="val1"
@@ -125,4 +134,15 @@ export default {
 };
 </script>
 <style scoped>
+.huadong{
+  width: 300px;
+  border: 1px solid red;
+  overflow: scroll;
+  position: fixed;
+  left: 200px;
+}
+.son{
+  width: 600px;
+  margin-left: 300px
+}
 </style>
