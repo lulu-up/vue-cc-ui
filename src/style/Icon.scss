@@ -2,6 +2,7 @@
 @import "./common/animation.scss";
 
 @include b(icon) {
+    vertical-align: middle;
     .#{$state-prefix}disabled {
         cursor: not-allowed;
         fill: $--color-disabled;

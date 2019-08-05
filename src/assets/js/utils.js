@@ -11,9 +11,10 @@ export const myToFixed = value => {
 
 // 算元素距离body的距离
 export function getHTMLScroll(node) {
+  // node.getBoundingClientRect()  其实这一个函数就行了
   if (!node) return;
   let result = { top: 0, left: 0 },
-    parent = node.offsetParent||node.parentNode,
+    parent = node.offsetParent || node.parentNode,
     children = node; // 获取定位父级
   let task = son => {
     let dom = son.parentNode;
@@ -32,11 +33,11 @@ export function getHTMLScroll(node) {
       result.left -= domScrollLeft;
     }
 
-   let pos =  window.getComputedStyle(dom,null).position;
-    if(pos === 'fixed'){
+    let pos = window.getComputedStyle(dom, null).position;
+    if (pos === 'fixed') {
       result.top += dom.offsetTop;
       result.left += dom.offsetLeft;
-       return
+      return;
     }
     if (dom.nodeName !== 'BODY') {
       task(dom);
@@ -81,4 +82,13 @@ export function getScrollOffset() {
       top: document.body.scrollTop + document.documentElement.scrollTop
     };
   }
+}
+
+export function inspect(min) {
+  return function(value) {
+    if (value < min || value !== ~~value) {
+      throw new Error(`最小为${min}的整数`);
+    }
+    return true;
+  };
 }

@@ -34,7 +34,7 @@
     };
     @include b(input__clear){
         position: absolute;
-        right: 2px;
+        right: 24px;
         &:hover{ animation: size .5s infinite linear;}
     };
     @include b(input--input__disabled){

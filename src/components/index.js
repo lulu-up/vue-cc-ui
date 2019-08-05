@@ -8,6 +8,7 @@ import inputNumber from './InputNumber/index';
 import rate from './Rate/index';
 import ske from './Ske/index';
 import lazy from './Lazy/index';
+import pagination from './Pagination/index'
 // 总的样式
 import '../style/index.scss';
 // 字体样式
@@ -22,7 +23,8 @@ const components = [
   tab,
   inputNumber,
   rate,
-  ske
+  ske,
+  pagination
 ];
 
 let CC = {
@@ -35,4 +37,4 @@ let CC = {
 
 export default CC;
 
-export { button, icon, toast, loading, input, tab, inputNumber, rate, ske,lazy };
+export { button, icon, toast, loading, input, tab, inputNumber, rate, ske,lazy,pagination };

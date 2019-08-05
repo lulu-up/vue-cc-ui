@@ -1,4 +1,5 @@
 <!-- 这个bug有趣, 不能以对象的形式写shadow属性 -->
+<!-- 骨架屏模板 -->
 <template>
   <transition name="leave">
     <div class="cc-ske">

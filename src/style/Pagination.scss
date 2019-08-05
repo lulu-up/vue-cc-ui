@@ -1,0 +1,59 @@
+@import './common/var.scss';
+@import './common/extend.scss';
+@import './common/mixin.scss';
+@import './config/index.scss';
+
+@include b(pagination) {
+    cursor: pointer;
+    color: #606266;
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    .btn-prev {
+        border: none;
+        outline: none;
+        background-color: transparent;
+        &:hover {
+            color: $--color-nomal
+        }
+    }
+
+    .total-number {
+        font-size: 13px;
+        margin-right: 5px;
+    }
+
+    @include e(box) {
+        display: inline-flex;
+        flex-wrap: wrap;
+        &>li {
+            min-width: 30px;
+            margin: 3px 5px;
+            padding: 4px 8px;
+            @include flexCenter();
+            @include when(active) {
+                color: $--color-nomal
+            }
+            &:hover {
+                color: $--color-nomal
+            }
+        }
+    }
+    .ground {
+        border-radius: 4px;
+        background-color: #f4f4f5;
+        &:hover {
+            color: white;
+            background-color: $--color-nomal;
+        }
+    }
+    .ground-box { // 背景色是关键字
+        &>li {
+            @extend .ground;
+        }
+        &>.is-active{
+            color: white;
+            background-color: $--color-nomal;
+        }
+    }
+}

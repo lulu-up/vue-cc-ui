@@ -19,7 +19,7 @@
                 :color='iconColor'
                 :disabled='disabled' />
       </nav>
-      <input type="text"
+      <input :type="type"
              class='cc-input__inner'
              :value="value"
              v-bind="$attrs"
@@ -31,22 +31,23 @@
              @blur="blur($event.target.value)"
              @input="$emit('input',$event.target.value)"
              @focus="$emit('focus',$event.target.value);focus=true"
-             @change="$emit('change',$event.target.value)">
-      <nav v-if="icon&&!clear"
+             @change="$emit('change',$event.target.value)" />
+      <nav v-if="icon"
            class="cc-input__prefix is-right"
            @click="$emit('clickRightIcon')">
-        <ccIcon :name="clear?'cc-close':icon"
+        <ccIcon :name="icon"
                 :color='iconColor'
                 :disabled='disabled' />
         <slot />
       </nav>
       <nav v-if="showClear"
-           class="cc-input__clear is-right"
+           class="cc-input__clear is-clear"
            @click="clickClear">
         <ccIcon name="cc-close"
-                :color='iconColor'
                 :disabled='disabled' />
-        <slot />
+        <span style=" opacity: 0;">
+          <slot />
+        </span>
       </nav>
     </template>
     <textarea v-else
@@ -133,7 +134,6 @@ export default {
     clickClear() {
       this.$emit("input", "");
       this.$emit("change", "");
-      this.$emit("clickRightIcon");
     },
     blur(value) {
       this.focus = false;
@@ -178,7 +178,7 @@ export default {
       }
       let [boxSizing, paddingSize, borderSize] = this.calculateNodeStyling(el);
       let height = window.hiddenTextarea.scrollHeight;
-      if (boxSizing == "border-box") {
+      if (boxSizing === "border-box") {
         height = height + borderSize;
       } else {
         height = height - paddingSize;
@@ -203,6 +203,7 @@ export default {
         this.clear &&
         !this.disabled &&
         !this.readonly &&
+        this.value!== '' &&
         (this.hovering || this.focus)
       )
         return true;

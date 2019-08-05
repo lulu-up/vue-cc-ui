@@ -92,9 +92,9 @@
   bottom: $long;
 }
 
-@mixin flexCenter {
+@mixin flexCenter ($direction:column) {
   display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: $direction;
   justify-content: center;
 }

@@ -97,7 +97,8 @@
     <br>
     <cc-input value='我是传值1111' v-model="bangding" clear/>
     <br>
-    <cc-input value='我是传值1111' leftIcon='cc-phone1' v-model="bangding" clear/>
+    6666
+    <cc-input value='我是传值1111' icon='cc-phone1' v-model="bangding" clear />
     <br>
     <cc-input value='我是传值2' disabled/>
     <br>

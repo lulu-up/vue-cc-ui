@@ -1,11 +1,12 @@
 import Vue from 'vue';
-
 // import App from './App/tab.vue';
-// import App from './App/按钮到输入框.vue';
-// import App from './App/inputNumber.vue';
-import App from './App/小星星.vue';
+// import App from './App/按钮输入.vue';
+// import App from './App/计数器.vue';
+// import App from './App/小星星.vue';
 // import App from './App/骨架.vue';
 // import App from './App/懒加载.vue';
+import App from './App/分页器.vue';
+
 
 // 总的样式
 // import './style/index.scss';
@@ -22,7 +23,8 @@ import {
   inputNumber,
   rate,
   ske,
-  lazy
+  lazy,
+  pagination
 } from './components/index';
 Vue.use(button)
   .use(icon)
@@ -33,6 +35,7 @@ Vue.use(button)
   .use(inputNumber)
   .use(rate)
   .use(ske)
+  .use(pagination)
   .use(lazy, {
     time: 200,
     loadingImg:
