@@ -1,0 +1,14 @@
+@import './common/var.scss';
+@import './common/extend.scss';
+@import './common/mixin.scss';
+@import './config/index.scss';
+
+@include b(popover) {
+  display: inline-block;
+  position: relative;
+  @include e(content){
+      position: absolute;
+      border: 1px solid black;
+      bottom:calc(100% + 10px);
+  }
+}
