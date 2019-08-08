@@ -98,3 +98,61 @@
   flex-direction: $direction;
   justify-content: center;
 }
+
+
+@mixin triangleAfter ($where){
+  &::after{
+    content: '';
+    position: absolute;
+    border: 6px solid white;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    @if $where== 'top' {
+      bottom: -11px;
+      border-top-color: white;
+    }
+    @if $where== 'right' {
+      left: -11px;
+      border-right-color:white;
+    }
+    @if $where== 'left' {
+      right: -11px;
+      border-left-color:white;
+    }
+    @if $where== 'bottom' {
+      top: -11px;
+      border-bottom-color: white;
+    }
+    @content;
+  };
+}
+@mixin triangleBefore ($where){
+  &::before{
+    content: '';
+    position: absolute;
+    border: 6px solid rgb(172, 171, 171);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    @if $where== 'top' {
+      bottom: -12px;
+      border-top-color: rgb(172, 171, 171);
+    }
+    @if $where== 'right' {
+      left:-12px;
+      border-right-color: rgb(172, 171, 171);
+    }
+    @if $where== 'left' {
+      right: -12px;
+      border-left-color: rgb(172, 171, 171);
+    }
+    @if $where== 'bottom' {
+      top: -12px;
+      border-bottom-color: rgb(172, 171, 171);
+    }
+    @content;
+  };
+}

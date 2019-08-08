@@ -1,53 +1,152 @@
-<!-- 与element结构不同 -->
 <template>
   <div class="cc-popover"
-       @click.stop="handlClick">
-       <!-- 为了对抗overfllow:hideen, 要自己去算位置 -->
+       ref='popover'>
+    <!-- 为了对抗overfllow:hideen, 要自己去算位置 -->
+    <!-- 不可以使用stop 会阻止用户的操作 -->
     <transition name='fade'>
       <div v-if="init"
+           ref='content'
            v-show='show'
-           @click.stop='handlPopover'
-           class="cc-popover__content">
-        <slot name="content">
-
-        </slot>
+           class="cc-popover__content"
+           :class="options.direction"
+           :style="{
+               top:top+'px',
+               left:left+'px'
+           }">
+        <div class="cc-popover__box">
+          <slot name="content"> 请输入内容</slot>
+        </div>
       </div>
     </transition>
-    <!-- 他被父级包裹, 所以他的距离就是父级的距离 -->
     <slot />
   </div>
 </template>
 
 <script>
+import { on, off } from "@/assets/js/utils";
+import { getPopoverposition } from "@/assets/js/vue-popper";
 export default {
   name: "ccPopover",
-  props: {},
+  props: {
+    // 事件类型用户自己传
+    trigger: {
+      type: String,
+      default: "hover",
+      validator: value => ["click", "hover"].indexOf(value) > -1
+    },
+    placement: {
+      type: String,
+      default: "right-middle",
+      validator(value) {
+        let dator = /^(top|bottom|left|right)(-start|-end|-middle)?$/g.test(
+          value
+        );
+        return dator;
+      }
+    }
+  },
   data() {
     return {
+      time: "",
+      top: -1000,
+      left: -1000,
       init: false,
-      show: false
+      show: false,
+      options: {}
     };
   },
   methods: {
     handlClick() {
+      // 为了兼容v-if
+      // 为了兼容滚动消除
       this.init = true;
-      this.show = !this.show;
-          // 不要监听body, 因为可能height不是100%;
-          // 这个document也可以有用户指定
-          // 放入的是同名函数, 没问题的
-      this.show && document.addEventListener('click',this.close);
+      console.log(this.$refs.content)
+      if (this.$refs.content && this.$refs.content.style.display === "none") {
+        // 有bug, 必须这样强制写
+        this.$refs.content.style.display = 'block'
+        this.show = true;
+      } else {
+        this.show = !this.show;
+      }
+      // 不要监听body, 因为可能height不是100%;
+      // 这个document也可以有用户指定
+      // 放入的是同名函数, 没问题的
+      this.show && document.addEventListener("click", this.close);
     },
-    close(){
-        console.log('1')
-      this.show = false;
-      document.removeEventListener('click',this.close)
+    close(e) {
+      if (this.isPopover(e)) {
+        this.show = false;
+        document.removeEventListener("click", this.close);
+      }
     },
-    handlPopover(){
-        this.$emit('handlPopover')
+    isPopover(e) {
+      let dom = e.target,
+        popover = this.$refs.popover,
+        content = this.$refs.content;
+      return !(popover.contains(dom) || content.contains(dom));
+    },
+    // 移入
+    handleMouseEnter() {
+      clearTimeout(this.time);
+      this.init = true;
+      this.show = true;
+    },
+    // 移出
+    handleMouseLeave() {
+      clearTimeout(this.time);
+      this.time = setTimeout(() => {
+        this.show = false;
+      }, 200);
     }
   },
-  created() {},
-  mounted() {},
-  computed: {}
+  watch: {
+    init() {
+      this.$nextTick(() => {
+        let trigger = this.trigger,
+          dom = this.$refs.content,
+          content = this.$refs.content;
+        document.body.appendChild(dom);
+        if (trigger === "hover") {
+          on(content, "mouseenter", this.handleMouseEnter);
+          on(content, "mouseleave", this.handleMouseLeave);
+        }
+      });
+    },
+    show() {
+      if (this.show) {
+        this.$nextTick(() => {
+          let { popover, content } = this.$refs;
+          let { left, top, options } = getPopoverposition(
+            popover,
+            content,
+            this.placement
+          );
+          this.left = left;
+          this.top = top;
+          this.options = options;
+        });
+      }
+    }
+  },
+  mounted() {
+    this.$nextTick(() => {
+      let trigger = this.trigger,
+        popover = this.$refs.popover;
+      if (trigger === "hover") {
+        on(popover, "mouseenter", this.handleMouseEnter);
+        on(popover, "mouseleave", this.handleMouseLeave);
+      } else if (trigger === "click") {
+        on(popover, "click", this.handlClick);
+      }
+    });
+  },
+  beforeDestroy() {
+    let { popover, content } = this.$refs;
+    off(content, "mouseleave", this.handleMouseLeave);
+    off(popover, "mouseleave", this.handleMouseLeave);
+    off(content, "mouseenter", this.handleMouseEnter);
+    off(popover, "mouseenter", this.handleMouseEnter);
+    off(document, "click", this.close);
+  }
 };
 </script>

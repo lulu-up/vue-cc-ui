@@ -3,12 +3,122 @@
 @import './common/mixin.scss';
 @import './config/index.scss';
 
+
 @include b(popover) {
-  display: inline-block;
-  position: relative;
-  @include e(content){
-      position: absolute;
-      border: 1px solid black;
-      bottom:calc(100% + 10px);
-  }
+    position: relative;
+    display: inline-block;
+    @include e(box) {
+        overflow: auto;
+    }
+    @include e(content) {
+        position: absolute;
+        color: $--color-weak;
+        background-color: white;
+        box-shadow: 0px 0px 3px rgb(172, 171, 171);
+        top: 100px;
+        left: 100px;
+        padding: 6px;
+        @at-root {
+            .top-end {
+                @include triangleAfter(top){
+                    right:5px;
+                };
+                @include triangleBefore(top){
+                    right:5px;
+                };
+            }
+            .top-middle {
+                @include triangleAfter(top){
+                    left: calc(50% - 6px);
+                };
+                @include triangleBefore(top){
+                    left: calc(50% - 6px);
+                };
+            }
+            .top-start {
+                @include triangleAfter(top){
+                    left: 5px
+                };
+                @include triangleBefore(top){
+                    left: 5px
+                };
+            }
+
+            .bottom-end {
+                @include triangleAfter(bottom){
+                    right:5px;
+                };
+                @include triangleBefore(bottom){
+                    right:5px;
+                };
+            }
+            .bottom-middle {
+                @include triangleAfter(bottom){
+                    left: calc(50% - 6px);
+                };
+                @include triangleBefore(bottom){
+                    left: calc(50% - 6px);
+                };
+            }
+            .bottom-start {
+                @include triangleAfter(bottom){
+                    left: 5px
+                };
+                @include triangleBefore(bottom){
+                    left: 5px
+                };
+            }
+
+            .right-end {
+                @include triangleAfter(right){
+                    bottom: 5px;
+                };
+                @include triangleBefore(right){
+                    bottom: 5px;
+                };
+            }
+            .right-middle {
+                @include triangleAfter(right){
+                    top: calc(50% - 6px);
+                };
+                @include triangleBefore(right){
+                    top: calc(50% - 6px);
+                };
+            }
+            .right-start {
+                @include triangleAfter(right){
+                    top: 5px
+                };
+                @include triangleBefore(right){
+                    top: 5px
+                };
+            }
+
+
+            .left-end {
+                @include triangleAfter(left){
+                    bottom: 5px;
+                };
+                @include triangleBefore(left){
+                    bottom: 5px;
+                };
+            }
+            .left-middle {
+                @include triangleAfter(left){
+                    top: calc(50% - 6px);
+                };
+                @include triangleBefore(left){
+                    top: calc(50% - 6px);
+                };
+            }
+            .left-start {
+                @include triangleAfter(left){
+                    top: 5px
+                };
+                @include triangleBefore(left){
+                    top: 5px
+                };
+            }
+        }
+    }
 }
