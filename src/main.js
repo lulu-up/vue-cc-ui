@@ -1,12 +1,12 @@
 import Vue from 'vue';
-// import App from './App/tab.vue';
+import App from './App/tab.vue';
 // import App from './App/按钮输入.vue';
 // import App from './App/计数器.vue';
 // import App from './App/小星星.vue';
 // import App from './App/骨架.vue';
 // import App from './App/懒加载.vue';
 // import App from './App/分页器.vue';
-import App from './App/popover.vue'
+// import App from './App/popover.vue'
 
 
 // 总的样式

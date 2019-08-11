@@ -9,7 +9,8 @@ export default {
   name: "ccTabPane",
   props: {
     label: {
-      type: String
+      type: String,
+      required: true
     },
     name: {
       type: String,

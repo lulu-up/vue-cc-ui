@@ -28,7 +28,6 @@
 
 <script>
 import ccIcon from "@/components/Icon/main/icon.vue";
-import { setTimeout, clearTimeout } from "timers";
 export default {
   name: "ccInputNumber",
   component: { ccIcon },
@@ -76,12 +75,12 @@ export default {
       let { max, min } = this;
       if (max !== undefined && newVal > max) newVal = max;
       if (min !== undefined && newVal < min) newVal = min;
-      let ls = Number(newVal).toFixed(this.precision);
-      if (ls === this.oldVal) return;
-      this.oldVal = ls;
-      this.$emit("input", ls);
-      this.$emit("change", ls);
-      this.$refs.input.value = ls;
+      let value = Number(newVal).toFixed(this.precision);
+      if (value === this.oldVal) return;
+      this.oldVal = value;
+      this.$emit("input", value);
+      this.$emit("change", value);
+      this.$refs.input.value = value;
     }
   },
   computed: {
