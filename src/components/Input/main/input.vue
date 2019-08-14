@@ -23,6 +23,7 @@
              class='cc-input__inner'
              :value="value"
              v-bind="$attrs"
+             data-test='input'
              :disabled="disabled"
              :readonly="readonly"
              :autofocus="autofocus"
@@ -33,6 +34,7 @@
              @focus="$emit('focus',$event.target.value);focus=true"
              @change="$emit('change',$event.target.value)" />
       <nav v-if="icon"
+           data-test="icon"
            class="cc-input__prefix is-right"
            @click="$emit('clickRightIcon')">
         <ccIcon :name="icon"
@@ -41,6 +43,7 @@
         <slot />
       </nav>
       <nav v-if="showClear"
+           data-test='clear'
            class="cc-input__clear is-clear"
            @click="clickClear">
         <ccIcon name="cc-close"
@@ -55,6 +58,7 @@
               class='cc-input__inner'
               :value="value"
               v-bind="$attrs" 
+              data-test='textarea'
               :disabled="disabled"
               :readonly="readonly"
               :autofocus="autofocus"

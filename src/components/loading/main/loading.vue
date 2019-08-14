@@ -19,7 +19,9 @@
       <span :style="{
           'fontSize':textFontSize+'px',
           'color':textColor
-          }">{{title}}</span>
+          }"
+          data-test='title'
+          >{{title}}</span>
     </section>
 
   </div>

@@ -1,5 +1,6 @@
 <template>
   <button class="cc-button"
+          data-test="button"
           @touchstart='touchstart($event)'
     :class="[ 
       sizeType,
@@ -17,6 +18,7 @@
     <ccIcon v-if="icon"
             :name='icon'
             :color="realyIconColor"
+            data-test="icon"
             style="margin-right:2px" />
     <slot />
   </button>

@@ -6,20 +6,20 @@
     <div class="cc-input-number__reduce"
          @click='reduce'>
       <slot name='left'>
-        <cc-icon size='25px'
-                 name='cc-reduce2'
+        <ccIcon size='25px'
+                 :name='`cc-reduce2`'
                  :color='valueMin' />
       </slot>
     </div>
     <input ref="input"
-           class="cc-input-number__input"
            type="number"
+           class="cc-input-number__input"
            @input="inputChange($event)">
     <div class="cc-input-number__add"
          @click="add">
       <slot name='right'>
-        <cc-icon size='25px'
-                 name='cc-add2'
+        <ccIcon size='25px'
+                 :name='`cc-add2`'
                  :color="valueMax" />
       </slot>
     </div>

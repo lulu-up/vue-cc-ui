@@ -12,16 +12,19 @@
     <ul class='cc-pagination__box'
         :class="{'ground-box':background}">
       <li @click="handlClick(1)"
+          data-test='item'
           :class="{'is-active':value === 1}">1</li>
       <li v-if='showLeft'
           @click="previous">··</li>
       <li v-for="item in showPages"
           :key='item'
+          data-test='item'
           @click="handlClick(item)"
           :class="{'is-active':value === item}">{{item}}</li>
       <li v-if='showRight'
           @click="next">··</li>
       <li v-if="pageTotal !== 1"
+          data-test='item'
           @click="handlClick(pageTotal)"
           :class="{'is-active':value === pageTotal}">{{pageTotal}}</li>
     </ul>

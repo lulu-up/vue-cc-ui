@@ -25,7 +25,7 @@ export default {
     disabled: Boolean,
     name: {
       type: String,
-      required: true
+      default: "cc-load1"
     },
     size: {
       type: [Number, String],
