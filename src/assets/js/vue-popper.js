@@ -1,10 +1,10 @@
 // 流体bug未解决, 需要多次获取dom, 感觉完全没必要
 import { getScrollOffset } from './utils';
-export function getPopoverposition(popover, content, direction) {
+export function getPopoverposition(popover, content, direction,CONTANT ) {
   // 只负责启动, 自己去检测
   // 优化一些, 参数获取函数
   let result = { show: true };
-  getOptions(result, popover, content, direction);
+  getOptions(result, popover, content, direction,CONTANT );
   let { left, top } = getScrollOffset();
   result.left += left;
   result.top += top;
@@ -26,14 +26,14 @@ const list = [
   'bottom-middle'
 ];
 // 只要获取一次就行, 不要浪费性能
-function getOptions(result, popover, content, direction) {
+function getOptions(result, popover, content, direction,CONTANT = 10) {
   let myList = list.concat(),
     client = popover.getBoundingClientRect();
   myList.splice(list.indexOf(direction), 1);
   getDirection(result, {
     myList,
     direction,
-    CONTANT: 10,
+    CONTANT,
     top: client.top,
     left: client.left,
     popoverWidth: popover.offsetWidth,

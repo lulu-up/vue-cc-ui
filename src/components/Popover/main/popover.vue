@@ -60,10 +60,10 @@ export default {
       // 为了兼容v-if
       // 为了兼容滚动消除
       this.init = true;
-      console.log(this.$refs.content)
+      console.log(this.$refs.content);
       if (this.$refs.content && this.$refs.content.style.display === "none") {
         // 有bug, 必须这样强制写
-        this.$refs.content.style.display = 'block'
+        this.$refs.content.style.display = "block";
         this.show = true;
       } else {
         this.show = !this.show;
@@ -115,12 +115,12 @@ export default {
     show() {
       if (this.show) {
         this.$nextTick(() => {
-          let { popover, content } = this.$refs;
-          let { left, top, options } = getPopoverposition(
-            popover,
-            content,
-            this.placement
-          );
+          let { popover, content } = this.$refs,
+            { left, top, options } = getPopoverposition(
+              popover,
+              content,
+              this.placement
+            );
           this.left = left;
           this.top = top;
           this.options = options;
