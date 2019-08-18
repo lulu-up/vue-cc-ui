@@ -145,8 +145,10 @@ export default {
   },
   computed: {
     formatDare() {
-      let { year, month, day } = getYMD(this.value);
-      return `${year}-${month + 1}-${day}`;
+      let { year, month, day } = getYMD(this.value),
+        result = `${year}-${month + 1}-${day}`;
+      this.$emit("gethandleValue", result);
+      return result;
     },
     visibeDays() {
       let result = [],

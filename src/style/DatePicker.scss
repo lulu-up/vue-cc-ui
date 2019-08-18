@@ -15,9 +15,9 @@
     @include b(date-pannel){
         position: fixed;
         border: 1px solid $--color-disabled;
+        background-color: $--color-white;
         width: 280px;
         padding: 8px;
-        height: 300px;
         border-radius:7px; 
         .pannel-nav{
             display: flex;
