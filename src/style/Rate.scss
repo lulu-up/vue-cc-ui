@@ -31,10 +31,6 @@
         margin-left: 6px;
     }
 
-    @include e(box) {
-        border: 1px solid transparent;
-    }
-
     @include m(big) {
         transform: scale(.8)
     }

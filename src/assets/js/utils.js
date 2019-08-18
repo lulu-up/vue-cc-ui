@@ -1,4 +1,4 @@
-// 加.0
+// 加.0  toFixed会四舍五入的
 export const myToFixed = value => {
   value = value + '';
   if (value.includes('.')) {

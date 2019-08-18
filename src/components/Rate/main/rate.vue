@@ -15,9 +15,7 @@
                  :size="`${size}px`"
                  :name='iconType.name'
                  :color='iconType.darkColor'
-                 :class="{
-                   'cc-rate--big':item<bigIndex
-                 }" />
+                 :class="{ 'cc-rate--big':item < bigIndex}" />
       </span>
       <span class='cc-rate__bright'
             :style="{ width }">
@@ -26,7 +24,7 @@
                  :name='iconType.name'
                  :size="`${size}px`"
                  :color='iconType.brightColor'
-                 :class="{ 'cc-rate--big':item<bigIndex }" />
+                 :class="{ 'cc-rate--big':item < bigIndex }" />
       </span>
     </i>
     <span v-if='score'
@@ -89,16 +87,21 @@ export default {
         value = this.boundary(value);
         // 前面的变大效果
         // 每颗必须完整 一颗的距离
-        let i = 0,
+
+        let i, oneNum;
+        if (this.big || this.one) {
+          i = 0;
           oneNum = this.numTotal / this.num;
-        while (oneNum * i < value) {
-          i++;
+          while (oneNum * i <= value) {
+            i++;
+          }
+          if (this.big) {
+            this.bigIndex = i;
+          }
         }
-        if (this.big) {
-          this.bigIndex = i;
-        }
-        if (this.one) {
-          this.$emit("input", oneNum * i);
+        if (this.one) {  // 防止溢出
+          value = Math.min(oneNum * i, this.numTotal);
+          this.$emit("input", value);
         } else {
           this.$emit("input", value);
         }
@@ -116,7 +119,7 @@ export default {
       this.oldVal = this.value;
       this.$emit("change", myToFixed(this.oldVal));
     },
-    // 判断是否差熬出边界
+    // 判断是否超出边界
     boundary(value) {
       if (value <= 0) value = 0;
       if (value >= this.numTotal) value = this.numTotal;
@@ -131,13 +134,10 @@ export default {
     iconType() {
       let { type, darkColor, brightColor } = this,
         result = {
-          name: "cc-stars2",
-          brightColor: "rgb(247, 186, 42)",
-          darkColor: "#bbbbbb"
+          name: type || "cc-stars2",
+          brightColor: brightColor || "rgb(247, 186, 42)",
+          darkColor: darkColor || "#bbbbbb"
         };
-      if (type) result.name = type;
-      if (darkColor) result.darkColor = darkColor;
-      if (brightColor) result.brightColor = brightColor;
       return result;
     },
     numTotal() {
