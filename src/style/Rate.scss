@@ -13,6 +13,7 @@
         align-items: center;
         height: 100%;
         transition: all .3;
+        padding-right:3px ;
     }
 
     @include e (bright) {

@@ -101,10 +101,8 @@ export default {
         }
         if (this.one) {  // 防止溢出
           value = Math.min(oneNum * i, this.numTotal);
-          this.$emit("input", value);
-        } else {
-          this.$emit("input", value);
         }
+        this.$emit("input", value);
       }
     },
     // 离开区域
