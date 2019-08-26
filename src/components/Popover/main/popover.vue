@@ -24,7 +24,7 @@
 
 <script>
 import { on, off } from "@/assets/js/utils";
-import { getPopoverposition } from "@/assets/js/vue-popper";
+import { getPopoverPosition } from "@/assets/js/vue-popper";
 export default {
   name: "ccPopover",
   props: {
@@ -48,8 +48,8 @@ export default {
   data() {
     return {
       time: "",
-      top: -1000,
-      left: -1000,
+      top: 0,
+      left: 0,
       init: false,
       show: false,
       options: {}
@@ -60,7 +60,7 @@ export default {
       // 为了兼容v-if
       // 为了兼容滚动消除
       this.init = true;
-      console.log(this.$refs.content);
+      // console.log(this.$refs.content);
       if (this.$refs.content && this.$refs.content.style.display === "none") {
         // 有bug, 必须这样强制写
         this.$refs.content.style.display = "block";
@@ -103,9 +103,8 @@ export default {
     init() {
       this.$nextTick(() => {
         let trigger = this.trigger,
-          dom = this.$refs.content,
           content = this.$refs.content;
-        document.body.appendChild(dom);
+        document.body.appendChild(content);
         if (trigger === "hover") {
           on(content, "mouseenter", this.handleMouseEnter);
           on(content, "mouseleave", this.handleMouseLeave);
@@ -116,7 +115,7 @@ export default {
       if (this.show) {
         this.$nextTick(() => {
           let { popover, content } = this.$refs,
-            { left, top, options } = getPopoverposition(
+            { left, top, options } = getPopoverPosition(
               popover,
               content,
               this.placement
@@ -147,6 +146,7 @@ export default {
     off(content, "mouseenter", this.handleMouseEnter);
     off(popover, "mouseenter", this.handleMouseEnter);
     off(document, "click", this.close);
+    document.body.removeChild(content);
   }
 };
 </script>

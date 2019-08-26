@@ -49,7 +49,7 @@
 
 <script>
 import Clickoutside from "@/assets/js/Clickoutside";
-import { getPopoverposition } from "@/assets/js/vue-popper";
+import { getPopoverPosition } from "@/assets/js/vue-popper";
 import { getYMD, getDayCountOfMonth } from "@/assets/js/handelDate";
 
 export default {
@@ -124,7 +124,7 @@ export default {
     },
     setPosion() {
       let { popover, content } = this.$refs;
-      let { left, top } = getPopoverposition(
+      let { left, top } = getPopoverPosition(
         popover,
         content,
         "bottom-start",

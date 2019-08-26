@@ -1,5 +1,6 @@
 import Popover from './popover.vue';
 import prevent from '@/assets/js/prevent';
+
 Popover.install = function(Vue) {
   Vue.component(Popover.name, Popover);
   Vue.prototype.$clearPopover = function() {
@@ -14,7 +15,7 @@ Popover.install = function(Vue) {
       Vue.prototype.$clearPopover()
     },400);
   },false)
-   
+
   Vue.directive('scroll-clear-popover', {
     bind: el => {
       el.addEventListener('scroll', ()=>{

@@ -1,6 +1,6 @@
 // 流体bug未解决, 需要多次获取dom, 感觉完全没必要
 import { getScrollOffset } from './utils';
-export function getPopoverposition(popover, content, direction,CONTANT ) {
+export function getPopoverPosition(popover, content, direction,CONTANT ) {
   // 只负责启动, 自己去检测
   // 优化一些, 参数获取函数
   let result = { show: true };
