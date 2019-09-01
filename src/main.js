@@ -6,8 +6,9 @@ import Vue from 'vue';
 // import App from './App/骨架.vue';
 // import App from './App/懒加载.vue';
 // import App from './App/分页器.vue';
-import App from './App/popover.vue'
+// import App from './App/popover.vue'
 // import App from './App/日期选择器.vue';
+import App from './App/tree.vue'
 
 // 总的样式
 // import './style/index.scss';
@@ -27,10 +28,12 @@ import {
   lazy,
   pagination,
   popover,
-  datePicker
+  datePicker,
+  tree,
 } from './components/index';
 Vue.use(button)
   .use(icon)
+  .use(tree)
   .use(toast)
   .use(loading)
   .use(input)

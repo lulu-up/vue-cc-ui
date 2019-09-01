@@ -1,0 +1,6 @@
+@import './common/mixin.scss';
+@import "./common/animation.scss";
+
+@include b(tree){
+    color: red
+}
