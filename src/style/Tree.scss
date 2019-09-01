@@ -1,6 +1,55 @@
+@import './common/var.scss';
 @import './common/mixin.scss';
+@import './common/extend.scss';
 @import "./common/animation.scss";
 
-@include b(tree){
-    color: red
+@include b(tree) {
+    color: $--color-weak;
+    font-size: 14px;
+    font-weight: 400;
+    text-indent: 1em;
+    @include e(item) {
+        margin: 2px 0;
+    }
+    @include e(content) {
+        position: relative;
+        padding: 3px 0;
+        &:hover {
+            background-color: $--color-difference;
+        }
+    }
+    @include e(icon) {
+        overflow: hidden;
+        position: relative;
+        transition: all 0.3s;
+        display: inline-block;
+        border-bottom: 3px solid $--color-danger;
+        width: .5em;
+        height: .5em;
+        margin-right:5px; 
+        transform: scale(.8);
+        &::after {
+            content: '';
+            display: block; 
+            position: absolute;
+            background-color: $--color-danger;
+            left: 50%;
+            width: 80%;
+            height: 100%;
+        }
+    }
+    .is-open {
+        transform: rotate(90deg) scale(1);
+    }
+    .is-active{
+        background-color: #F5F7FA;
+    }
+    .is-all__check{
+        @extend .check-ball;
+        background-color: $--color-warning;
+    }
+    .is-all__nocheck{
+        @extend .check-ball;
+        background-color: $--color-nomal;
+    }
 }
