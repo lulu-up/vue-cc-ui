@@ -13,7 +13,8 @@
          class="cc-date-pannel"
          :style="{
                top:top+'px',
-               left:left+'px'
+               left:left+'px',
+               zIndex: zIndex
            }">
       <div class="pannel-nav">
         <span @click="handlerChangeYear(-1)">＜</span>
@@ -58,6 +59,11 @@ export default {
     value: {
       type: Date,
       default: () => new Date()
+    },
+    // 不然会被挡住, 这个有必要
+    zIndex: {
+      type: Number,
+      default: 2
     }
   },
   data() {
@@ -110,9 +116,10 @@ export default {
       for (let i = 0; i < dayOffset; i++) {
         result.unshift({ readOnly: true, day: dateCountOfLastMonth - i });
       }
+      let day = getYMD(this.value).day;
       for (let i = 1; i <= dateCountOfMonth; i++) {
         let obj = { day: i, activate: true };
-        if (getYMD(this.value).day !== i) {
+        if (day !== i) {
           obj.activate = false;
         }
         result.push(obj);

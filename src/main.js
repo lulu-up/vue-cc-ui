@@ -7,8 +7,8 @@ import Vue from 'vue';
 // import App from './App/懒加载.vue';
 // import App from './App/分页器.vue';
 // import App from './App/popover.vue'
-// import App from './App/日期选择器.vue';
-import App from './App/tree.vue'
+import App from './App/日期选择器.vue';
+// import App from './App/tree.vue'
 
 // 总的样式
 // import './style/index.scss';
