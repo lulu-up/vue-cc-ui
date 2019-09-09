@@ -146,7 +146,9 @@ export default {
     off(content, "mouseenter", this.handleMouseEnter);
     off(popover, "mouseenter", this.handleMouseEnter);
     off(document, "click", this.close);
-    document.body.removeChild(content);
+    if (document.body.contains(content)) {
+      document.body.removeChild(content);
+    }
   }
 };
 </script>

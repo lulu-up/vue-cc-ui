@@ -12,6 +12,7 @@
               :class="{'is-open':dragState[index].open}"></span>
         <input v-if="showCheckbox && !child[children]"
                type="checkbox"
+               class="cc-tree__checkbox"
                :checked="~choiceLists.indexOf(child[keyName])"
                @click.stop="clickCheckbox(child)" />
         <!-- 黄色为全删 , 蓝色为全选, 这个理念多有趣-->

@@ -96,11 +96,6 @@ export default {
     handleNodeClick(node) {
       console.log(node.id);
     }
-  },
-  created() {},
-  mounted() {},
-  computed: {}
+  }
 };
 </script>
-<style scoped>
-</style>

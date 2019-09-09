@@ -38,6 +38,10 @@
             height: 100%;
         }
     }
+    @include e(checkbox){
+      margin-right: 5px;
+      transform: translateY(-1px)
+    }
     .is-open {
         transform: rotate(90deg) scale(1);
     }

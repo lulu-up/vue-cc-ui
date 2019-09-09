@@ -6,10 +6,10 @@ import {
 class Lazy {
   install(Vue, options) {
     this.vm = Vue;
-    this.list = new Set(); // 装元素
     this.timeEl = '';
-    this.error = options.error; // 错误图片这个我要补一下;
+    this.list = new Set();
     this.time = options.time;
+    this.error = options.error;
     this.loadingImg = options.loadingImg;
     this.initDirective();
     this.initScroll();
