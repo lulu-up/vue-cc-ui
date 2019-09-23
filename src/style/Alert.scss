@@ -1,0 +1,55 @@
+@import './common/var.scss';
+@import './common/mixin.scss';
+@import './common/extend.scss';
+
+@include b(alert) {
+    &::after {
+        content: '';
+        @include position(fixed);
+        background-color: $--color-black;
+        opacity: 0.7;
+    }
+
+    @include e(context) {
+        position: absolute;
+        background-color: white;
+        @include commonShadow($--color-black, 10px);
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        min-width: 400px;
+        border-radius: 5px;
+        padding: 15px 20px;
+        transform: translate(-50%, -50%);
+
+        &>header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 21px;
+            font-weight: 200;
+        }
+
+        &>article {
+            padding: 15px 0;
+            min-height: 40px;
+        }
+
+        &>footer {
+            display: flex;
+            justify-content: flex-end;
+
+            button:nth-of-type(1) {
+                margin-right: 15px;
+            }
+        }
+    }
+
+    @include e(icon) {
+        cursor: pointer;
+        transition: all .2s;
+        &:hover{
+            transform: scale(20)
+        }
+    }
+}

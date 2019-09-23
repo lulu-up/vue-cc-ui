@@ -1,7 +1,7 @@
 @import '../config/index.scss';
 @import '../common/var.scss';
 
-@mixin commonShadow($color) {
+@mixin commonShadow($color,$size:2px) {
   @if $color== 'success' {
     $color: $--color-success;
   }
@@ -21,7 +21,7 @@
 
   color: $color;
   border: 1px solid $color;
-  box-shadow: 2px 2px $color;
+  box-shadow: $size $size $color;
 }
 
 @mixin commonType($name) {

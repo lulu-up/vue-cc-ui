@@ -5,6 +5,7 @@ import lazy from './Lazy/index';
 import rate from './Rate/index';
 import tree from './Tree/index';
 import icon from './Icon/index';
+import alert from './Alert/index';
 import toast from './Toast/index';
 import input from './Input/index';
 import button from './Button/index';
@@ -25,6 +26,7 @@ const components = [
   icon,
   rate,
   tree,
+  alert,
   input,
   toast,
   button,
@@ -52,6 +54,7 @@ export {
   rate,
   tree,
   lazy,
+  alert,
   input,
   toast,
   button,

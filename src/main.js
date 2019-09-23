@@ -8,7 +8,8 @@ import Vue from 'vue';
 // import App from './App/分页器.vue';
 // import App from './App/popover.vue'
 // import App from './App/日期选择器.vue';
-import App from './App/tree.vue'
+// import App from './App/tree.vue'
+import App from './App/弹出框.vue';
 
 // 总的样式
 // import './style/index.scss';
@@ -30,9 +31,11 @@ import {
   popover,
   datePicker,
   tree,
+  alert
 } from './components/index';
 Vue.use(button)
   .use(icon)
+  .use(alert)
   .use(tree)
   .use(toast)
   .use(loading)
