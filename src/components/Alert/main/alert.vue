@@ -1,7 +1,7 @@
 <template>
   <div class="cc-alert"
-       @click="handlerClick($event)"
-       :style='{zIndex}'>
+       :style='{zIndex}'
+       @click="handlerClick($event)">
     <transition name='cc-alert-fade'>
       <div class="cc-alert__context"
            v-show="visible">
@@ -10,11 +10,9 @@
           <cc-icon v-if="showClose"
                    name='cc-close'
                    class="cc-alert__icon"
-                   @click.native="close"></cc-icon>
+                   @click.native="close"/>
         </header>
-        <article>
-          <slot></slot>
-        </article>
+        <article> <slot /> </article>
         <footer>
           <cc-button v-if="showCancel"
                      @click="cancel">{{cancelButtonText}}</cc-button>
@@ -73,13 +71,13 @@ export default {
     };
   },
   methods: {
-    // 点击
+    // 点击蒙层, 是否关闭弹框.
     handlerClick(e) {
-      if (this.handlerClick && e.target.className === "cc-alert") {
+      if ( e.target.className === "cc-alert" ) {
         this.closeOnClickModal && this.cancel();
       }
     },
-    // 关闭
+    // 关闭与销毁
     close() {
       this.visible = false;
       setTimeout(() => {
@@ -89,11 +87,15 @@ export default {
     },
     // 确认
     confirm() {
-      this.testConfirm ? this.testConfirm() && this.close() : this.close();
+      this.testConfirm 
+          ? this.testConfirm() && this.close() 
+          : this.close();
     },
     // 取消
     cancel() {
-      this.testCancel ? this.testCancel() && this.close() : this.close();
+      this.testCancel 
+          ? this.testCancel() && this.close() 
+          : this.close();
     }
   }
 };

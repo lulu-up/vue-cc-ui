@@ -9,7 +9,7 @@
            @click="handleClick(child,index)">
         <span class="cc-tree__icon"
               :style="`visibility: ${child[children]?'':'hidden'}`"
-              :class="{'is-open':dragState[index].open}"></span>
+              :class="{'is-open':dragState[index].open}"/>
         <input v-if="showCheckbox && !child[children]"
                type="checkbox"
                class="cc-tree__checkbox"
@@ -18,10 +18,10 @@
         <!-- 黄色为全删 , 蓝色为全选, 这个理念多有趣-->
         <i v-if="showCheckbox && child[children]"
            class="is-all__nocheck"
-           @click.stop="addAll(child)"></i>
+           @click.stop="addAll(child)"/>
         <i v-if="showCheckbox && child[children]"
            class="is-all__check"
-           @click.stop="deleteAll(child)"></i>
+           @click.stop="deleteAll(child)"/>
         <span>{{child[label]}}</span>
       </div>
       <cc-tree v-if="showChild(child, children)"
@@ -142,7 +142,8 @@ export default {
     },
     // 初始化状态对象
     initState() {
-      for (let i = 0; i < this.list.length; i++) {
+      let len = this.list.length;
+      for (let i = 0; i < len; i++) {
         this.dragState.push({
           open: false
         });
