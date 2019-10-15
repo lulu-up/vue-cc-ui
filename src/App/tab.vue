@@ -75,8 +75,7 @@ export default {
     handleClick(value) {
       console.log(value);
     }
-  },
-  mounted() {}
+  }
 };
 </script>
 <style >

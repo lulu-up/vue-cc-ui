@@ -1,4 +1,3 @@
-<!--  -->
 <template>
   <div>
     <cc-tree :list="list"
@@ -20,8 +19,6 @@
 
 <script>
 export default {
-  name: "",
-  props: {},
   data() {
     return {
       choiceLists: [],

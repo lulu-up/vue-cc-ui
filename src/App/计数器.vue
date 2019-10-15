@@ -1,4 +1,3 @@
-<!--  -->
 <template>
   <div>
     <ul>
@@ -44,10 +43,7 @@ export default {
     change1(val){
         console.log('收到了变化',val)
     }
-  },
-  created() {},
-  mounted() {},
-  computed: {}
+  }
 };
 </script>
 <style scoped lan='scss'>

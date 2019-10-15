@@ -1,4 +1,3 @@
-
 import tab from './Tab/index';
 import ske from './Ske/index';
 import lazy from './Lazy/index';
@@ -34,7 +33,7 @@ const components = [
   loading,
   datePicker,
   pagination,
-  inputNumber,
+  inputNumber
 ];
 
 let CC = {
@@ -46,6 +45,7 @@ let CC = {
 };
 
 export default CC;
+
 
 export {
   ske,

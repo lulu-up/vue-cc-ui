@@ -1,4 +1,3 @@
-<!--  -->
 <template>
   <div>
     <div class="wrap" v-scroll-clear-popover>
@@ -25,25 +24,6 @@
     <div class="chunl"></div>
   </div>
 </template>
-
-<script>
-export default {
-  name: "",
-  props: {},
-  data() {
-    return {};
-  },
-  methods: {},
-  created() {},
-  mounted() {
-    //   setInterval(()=>{
-    //      this.$clearPopover()
-    //   },3000)
-    
-  },
-  computed: {}
-};
-</script>
 <style scoped lang='scss'>
   .wrap{
       position: absolute;

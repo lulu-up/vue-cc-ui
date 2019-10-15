@@ -24,8 +24,8 @@
     }
 
     @include e(box) {
-        display: inline-flex;
         flex-wrap: wrap;
+        display: inline-flex;
         &>li {
             min-width: 30px;
             margin: 3px 5px;
@@ -40,8 +40,8 @@
         }
     }
     .ground {
-        border-radius: 4px;
         background-color: #f4f4f5;
+        border-radius: 4px;
         &:hover {
             color: white;
             background-color: $--color-nomal;

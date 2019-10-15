@@ -95,8 +95,8 @@
 @mixin flexCenter ($direction:column) {
   display: flex;
   align-items: center;
-  flex-direction: $direction;
   justify-content: center;
+  flex-direction: $direction;
 }
 
 

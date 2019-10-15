@@ -21,13 +21,13 @@
     @include e(icon) {
         overflow: hidden;
         position: relative;
-        transition: all 0.3s;
         display: inline-block;
         border-bottom: 3px solid $--color-danger;
         width: .5em;
         height: .5em;
         margin-right:5px; 
         transform: scale(.8);
+        transition: all 0.3s;
         &::after {
             content: '';
             display: block; 
