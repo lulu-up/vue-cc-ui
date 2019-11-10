@@ -1,15 +1,15 @@
 import Vue from 'vue';
-// import App from './App/tab.vue';
-// import App from './App/按钮输入.vue';
-// import App from './App/计数器.vue';
-// import App from './App/小星星.vue';
-// import App from './App/骨架.vue';
-// import App from './App/懒加载.vue';
-// import App from './App/分页器.vue';
-// import App from './App/popover.vue'
-// import App from './App/日期选择器.vue';
-// import App from './App/tree.vue'
-import App from './App/弹出框.vue';
+// import App from './(不会被打包)App/tab.vue';
+import App from './(不会被打包)App/按钮输入.vue';
+// import App from './(不会被打包)App/计数器.vue';
+// import App from './(不会被打包)App/小星星.vue';
+// import App from './(不会被打包)App/骨架.vue';
+// import App from './(不会被打包)App/懒加载.vue';
+// import App from './(不会被打包)App/分页器.vue';
+// import App from './(不会被打包)App/popover.vue'
+// import App from './(不会被打包)App/日期选择器.vue';
+// import App from './(不会被打包)App/tree.vue'
+// import App from './(不会被打包)App/弹出框.vue';
 
 import {
   tab,

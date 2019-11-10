@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import Clickoutside from "@/assets/js/Clickoutside";
-import { getPopoverPosition } from "@/assets/js/vue-popper";
+import clickoutside from "@/assets/js/clickoutside";
+import { getPopoverPosition } from "@/assets/js/vuePopper";
 import { getYMD, getDayCountOfMonth } from "@/assets/js/handelDate";
 
 export default {
@@ -75,7 +75,7 @@ export default {
     };
   },
   // 不允许污染用户.
-  directives: { Clickoutside },
+  directives: { clickoutside },
   methods: {
     hide() {
       this.isShowPanel = false;

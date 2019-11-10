@@ -29,7 +29,7 @@ import prevent from "@/assets/js/prevent.js";
 import ccIcon from "@/components/Icon/main/icon.vue";
 export default {
   name: "ccButton",
-  components: { ccIcon }, // 不用就删
+  components: { ccIcon },
   props: {
     icon: String, // 图标
     type: String, // 类型

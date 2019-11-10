@@ -1,5 +1,5 @@
 // 判断点击是不是自己
-const Clickoutside = {
+const clickoutside = {
   bind(el, bindings, vnode) {
     const handleClick = function(e) {
       // 如果当前的不包含目标元素, 也就是隐藏日期组件
@@ -18,4 +18,4 @@ const Clickoutside = {
   }
 };
 
-export default Clickoutside;
+export default clickoutside;

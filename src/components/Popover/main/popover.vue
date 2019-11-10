@@ -24,7 +24,7 @@
 
 <script>
 import { on, off } from "@/assets/js/utils";
-import { getPopoverPosition } from "@/assets/js/vue-popper";
+import { getPopoverPosition } from "@/assets/js/vuePopper";
 export default {
   name: "ccPopover",
   props: {
